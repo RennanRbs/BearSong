@@ -1,5 +1,5 @@
 //
-//  CollectionViewCell.swift
+//  FeedItemCell.swift
 //  BearSong
 //
 //  Created by Rennan Rebouças on 19/10/18.
@@ -8,18 +8,14 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class FeedItemCell: UICollectionViewCell {
 
     @IBOutlet weak var uiImage_image: UIImageView!
     @IBOutlet weak var label_hotBear: UILabel!
-    
+
     override func awakeFromNib() {
+        super.awakeFromNib()
         uiImage_image.layer.cornerRadius = 20
         uiImage_image.clipsToBounds = true
-        
-        
-        super.awakeFromNib()
-        
     }
-
 }

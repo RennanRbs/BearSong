@@ -1,5 +1,5 @@
 //
-//  CollectionViewCellFavorite.swift
+//  FavoriteItemCell.swift
 //  BearSong
 //
 //  Created by Rennan Rebouças on 24/10/18.
@@ -8,17 +8,13 @@
 
 import UIKit
 
-class CollectionViewCellFavorite: UICollectionViewCell {
+class FavoriteItemCell: UICollectionViewCell {
 
     @IBOutlet weak var uiimage_favorite: UIImageView!
-    
-    
+
     override func awakeFromNib() {
-        
+        super.awakeFromNib()
         uiimage_favorite?.layer.cornerRadius = 20
         uiimage_favorite?.clipsToBounds = true
-        
-        super.awakeFromNib()
     }
-
 }

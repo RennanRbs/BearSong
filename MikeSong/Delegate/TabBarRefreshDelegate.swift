@@ -1,5 +1,5 @@
 //
-//  RefreshTabbarDelegate.swift
+//  TabBarRefreshDelegate.swift
 //  BearSong
 //
 //  Created by Rennan Rebouças on 27/10/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RefreshTabbarDelegate {
+protocol TabBarRefreshDelegate {
     func oneRefresh()
     func run(after wait: TimeInterval, closure: @escaping () -> Void)
     func refresh()
