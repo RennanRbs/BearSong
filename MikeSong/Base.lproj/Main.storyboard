@@ -12,7 +12,7 @@
         <!--BearSong-->
         <scene sceneID="EdW-0U-6gt">
             <objects>
-                <viewController id="prv-86-70e" customClass="ViewControllerHotBear" customModule="BearSong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="prv-86-70e" customClass="FeedViewController" customModule="BearSong" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xdL-i7-W6C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
         <!--Peek View View Controller-->
         <scene sceneID="iKZ-Ug-ayZ">
             <objects>
-                <viewController storyboardIdentifier="Peek" id="Ys3-wl-c4c" customClass="PeekViewViewController" customModule="BearSong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Peek" id="Ys3-wl-c4c" customClass="PeekPreviewViewController" customModule="BearSong" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4KH-ij-q2h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -125,7 +125,7 @@
         <!--Stars-->
         <scene sceneID="Cx3-8Q-a3H">
             <objects>
-                <viewController id="IZx-cK-GAz" customClass="ViewControllerStar" customModule="BearSong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="IZx-cK-GAz" customClass="FavoritesViewController" customModule="BearSong" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aIX-V2-V7R">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -193,7 +193,7 @@
         <!--User-->
         <scene sceneID="XvA-Y5-LlQ">
             <objects>
-                <viewController id="yHd-4T-sVS" customClass="ViewController" customModule="BearSong" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yHd-4T-sVS" customClass="ProfileViewController" customModule="BearSong" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sjW-l8-G5h">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

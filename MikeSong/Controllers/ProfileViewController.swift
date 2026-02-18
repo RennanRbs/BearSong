@@ -1,6 +1,6 @@
 //
-//  ViewController.swift
-//  MikeSong
+//  ProfileViewController.swift
+//  BearSong
 //
 //  Created by Rennan Rebouças on 16/10/18.
 //  Copyright © 2018 Rennan Rebouças. All rights reserved.
@@ -18,22 +18,12 @@ private struct MixcloudProfile: Decodable {
     let pictures: Pictures?
 }
 
-//private struct Pictures: Decodable {
-//    // Map JSON key "640wx640h" to a Swift property
-//    let _640wx640h: String?
-//    
-//    private enum CodingKeys: String, CodingKey {
-//        case _640wx640h = "640wx640h"
-//    }
-//}
-
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ProfileViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBAction func editProfile(_ sender: Any) {
         let url = URL(string: "https://www.mixcloud.com/settings/profile/")
         UIApplication.shared.open(url!)
     }
-    
-    
+
     @IBOutlet weak var view_following: UIView!
     @IBOutlet weak var view_favorite: UIView!
     @IBOutlet weak var view_city: UIView!
@@ -46,56 +36,52 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var label_favorite: UILabel!
     @IBOutlet weak var label_following: UILabel!
     @IBOutlet weak var label_City: UILabel!
-   
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view_profile.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundProfile.png")!)
-        ParseMusicCloudProfile()
-        
-        self.image_Profile.layer.cornerRadius = 40
-        self.image_Profile.layer.borderWidth = 5
+        view_profile.backgroundColor = UIColor(patternImage: UIImage(named: "backgroundProfile.png")!)
+        parseMusicCloudProfile()
+
+        image_Profile.layer.cornerRadius = 40
+        image_Profile.layer.borderWidth = 5
         let myColor = UIColor.white
-        self.image_Profile.layer.borderColor = myColor.cgColor
-        self.image_Profile.clipsToBounds = true
-        self.view_name.layer.cornerRadius = 20
-        self.view_name.layer.borderWidth = 5
-        self.view_name.layer.borderColor = myColor.cgColor
-        self.view_name.clipsToBounds = true
-        self.view_bio.layer.cornerRadius = 20
-        self.view_bio.layer.borderWidth = 5
-        self.view_bio.layer.borderColor = myColor.cgColor
-        self.view_city.layer.cornerRadius = 20
-        self.view_city.layer.borderWidth = 5
-        self.view_city.layer.borderColor = myColor.cgColor
-        self.view_favorite.layer.cornerRadius = 20
-        self.view_favorite.layer.borderWidth = 5
-        self.view_favorite.layer.borderColor = myColor.cgColor
-        self.view_following.layer.cornerRadius = 20
-        self.view_following.layer.borderWidth = 5
-        self.view_following.layer.borderColor = myColor.cgColor
+        image_Profile.layer.borderColor = myColor.cgColor
+        image_Profile.clipsToBounds = true
+        view_name.layer.cornerRadius = 20
+        view_name.layer.borderWidth = 5
+        view_name.layer.borderColor = myColor.cgColor
+        view_name.clipsToBounds = true
+        view_bio.layer.cornerRadius = 20
+        view_bio.layer.borderWidth = 5
+        view_bio.layer.borderColor = myColor.cgColor
+        view_city.layer.cornerRadius = 20
+        view_city.layer.borderWidth = 5
+        view_city.layer.borderColor = myColor.cgColor
+        view_favorite.layer.cornerRadius = 20
+        view_favorite.layer.borderWidth = 5
+        view_favorite.layer.borderColor = myColor.cgColor
+        view_following.layer.cornerRadius = 20
+        view_following.layer.borderWidth = 5
+        view_following.layer.borderColor = myColor.cgColor
     }
-    
-// CollectionViewProfile
-    let reuseIdentifier = "Cell";
+
+    let reuseIdentifier = "Cell"
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as UICollectionViewCell
-        return cell
+        return collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
     }
+
     override func viewWillAppear(_ animated: Bool) {
-        ParseMusicCloudProfile()
+        super.viewWillAppear(animated)
+        parseMusicCloudProfile()
     }
-    
-    
-// Consuming API
-    func ParseMusicCloudProfile()  {
-        
-        guard let url = URL(string: "https://api.mixcloud.com/rennan-rebou%C3%A7as/")
-            else { return }
+
+    func parseMusicCloudProfile() {
+        guard let url = URL(string: "https://api.mixcloud.com/rennan-rebou%C3%A7as/") else { return }
         let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
             guard let data = data, error == nil else {
                 print(error?.localizedDescription ?? "Response Error")
@@ -107,8 +93,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                 let favoriteCount = profile.favorite_count ?? 0
                 let followingCount = profile.following_count ?? 0
                 let imageURLString = profile.pictures?._640wx640h ?? ""
-                
-                
+
                 DispatchQueue.main.async {
                     guard let self = self else { return }
                     self.label_Name.text = profile.name
@@ -120,36 +105,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                         self.image_Profile.image(fromUrl: imageURLString)
                     }
                 }
-                
             } catch let parsingError {
                 print("Error", parsingError)
             }
         }
         task.resume()
     }
-    
-    
 }
 
-
-
-//Extension UIIMageViewFromURL
+// MARK: - UIImageView URL Loading
 extension UIImageView {
-    public func image(fromUrl urlString: String) {
+    func image(fromUrl urlString: String) {
         guard let url = URL(string: urlString) else {
             print("Couldn't create URL from \(urlString)")
             return
         }
-        let theTask = URLSession.shared.dataTask(with: url) {
-            data, response, error in
-            if let responseData = data {
+        URLSession.shared.dataTask(with: url) { data, _, _ in
+            if let data = data {
                 DispatchQueue.main.async {
-                    self.image = UIImage(data: responseData)
+                    self.image = UIImage(data: data)
                 }
             }
-        }
-        theTask.resume()
+        }.resume()
     }
 }
-
-
