@@ -183,7 +183,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Stars" id="haf-hx-bib"/>
                     <connections>
-                        <outlet property="collectionView_Star" destination="awO-rx-RHq" id="BEw-2S-ihP"/>
+                        <outlet property="favoritesCollectionView" destination="awO-rx-RHq" id="BEw-2S-ihP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fz9-7R-qE0" userLabel="First Responder" sceneMemberID="firstResponder"/>

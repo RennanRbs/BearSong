@@ -13,53 +13,44 @@ class ViewControllerStar: UIViewController, UICollectionViewDataSource, UICollec
     
 
     
-    @IBOutlet weak var collectionView_Star: UICollectionView!
+    @IBOutlet weak var favoritesCollectionView: UICollectionView!
     var favorites = [Favorite]()
-    var favoritesImg = [UIImage]()
+    var favoriteImages = [UIImage]()
     
-    @IBOutlet weak var imageTest: UIImageView!
+    @IBOutlet weak var previewImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView_Star.delegate = self
-        collectionView_Star.dataSource = self
+        favoritesCollectionView.delegate = self
+        favoritesCollectionView.dataSource = self
         
-        
-        
-        self.collectionView_Star.register(UINib(nibName: "CollectionViewCellFavorite", bundle: nil), forCellWithReuseIdentifier: "FavoriteCell")
+        favoritesCollectionView.register(UINib(nibName: "CollectionViewCellFavorite", bundle: nil), forCellWithReuseIdentifier: "FavoriteCell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchCoreData()
-        mapingImage()
+        fetchFavoritesFromCoreData()
+        loadFavoriteImages()
         
-        self.collectionView_Star.reloadData()
-        
+        favoritesCollectionView.reloadData()
     }
 //CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         print("imagens salvas: \(favorites.count)")
-        return favoritesImg.count
+        return favoriteImages.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FavoriteCell", for: indexPath) as! CollectionViewCellFavorite
-        
-        cell.uiimage_favorite?.image = favoritesImg[indexPath.item]
-        //print("Path: \(String(describing: favorites[indexPath.item].pathImageFavorite))")
-         return cell
-        
-        
+        cell.uiimage_favorite?.image = favoriteImages[indexPath.item]
+        return cell
     }
     
     
     
-    func fetchCoreData(){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate 
-            else {
-                return}
+    func fetchFavoritesFromCoreData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
         
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Favorite>(entityName: "Favorite")
@@ -71,30 +62,27 @@ class ViewControllerStar: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    func mapingImage()  {
-        self.favoritesImg = favorites.map { (favorite) -> UIImage in
+    func loadFavoriteImages() {
+        favoriteImages = favorites.map { favorite -> UIImage in
             let fileManager = FileManager.default
-            let imagePath = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("fotosfavoritas")
-            let imagepath2 = imagePath.appendingPathComponent(favorite.pathImageFavorite!)
-            if let data = try? Data.init(contentsOf: imagepath2), let image = UIImage.init(data: data) {
+            let favoritesDirectoryURL = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).appendingPathComponent("fotosfavoritas")
+            let imageFileURL = favoritesDirectoryURL.appendingPathComponent(favorite.pathImageFavorite!)
+            if let data = try? Data(contentsOf: imageFileURL), let image = UIImage(data: data) {
                 return image
             } else {
-                print("não achou uma image no filemanager")
+                print("não achou uma imagem no filemanager")
                 return UIImage()
             }
         }
-
     }
     
-    
-    func getImage(imageName: String){
-        
+    func checkImageExists(imageName: String) {
         let fileManager = FileManager.default
-        let imagePath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("fotosfavoritas")
-        let imagepath2 = (imagePath as NSString).appendingPathComponent(imageName)
-        if fileManager.fileExists(atPath: imagepath2){
+        let favoritesDirectoryPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("fotosfavoritas")
+        let imageFilePath = (favoritesDirectoryPath as NSString).appendingPathComponent(imageName)
+        if fileManager.fileExists(atPath: imageFilePath) {
             print("image found")
-        }else{
+        } else {
             print("Panic! No Image!")
         }
     }
@@ -104,10 +92,9 @@ class ViewControllerStar: UIViewController, UICollectionViewDataSource, UICollec
 extension ViewControllerStar: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let largura = self.collectionView_Star.frame.width
-        let side = (largura - 16)
-        return CGSize(width: side, height: side)
+        let collectionViewWidth = favoritesCollectionView.frame.width
+        let cellSideLength = collectionViewWidth - 16
+        return CGSize(width: cellSideLength, height: cellSideLength)
     }
     
 }

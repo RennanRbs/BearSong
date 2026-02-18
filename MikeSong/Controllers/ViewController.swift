@@ -8,6 +8,24 @@
 
 import UIKit
 
+// MARK: - Mixcloud Profile Models
+private struct MixcloudProfile: Decodable {
+    let name: String?
+    let biog: String?
+    let city: String?
+    let favorite_count: Int?
+    let following_count: Int?
+    let pictures: Pictures?
+}
+
+//private struct Pictures: Decodable {
+//    // Map JSON key "640wx640h" to a Swift property
+//    let _640wx640h: String?
+//    
+//    private enum CodingKeys: String, CodingKey {
+//        case _640wx640h = "640wx640h"
+//    }
+//}
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBAction func editProfile(_ sender: Any) {
@@ -78,25 +96,29 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         guard let url = URL(string: "https://api.mixcloud.com/rennan-rebou%C3%A7as/")
             else { return }
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            guard let dataResponse = data,
-                error == nil else {
-                    print(error?.localizedDescription ?? "Response Error")
-                    return }
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let data = data, error == nil else {
+                print(error?.localizedDescription ?? "Response Error")
+                return
+            }
             do {
                 let decoder = JSONDecoder()
-                let profile = try decoder.decode(Json4Swift_Profile.self, from: dataResponse)
+                let profile = try decoder.decode(MixcloudProfile.self, from: data)
+                let favoriteCount = profile.favorite_count ?? 0
+                let followingCount = profile.following_count ?? 0
+                let imageURLString = profile.pictures?._640wx640h ?? ""
                 
                 
                 DispatchQueue.main.async {
+                    guard let self = self else { return }
                     self.label_Name.text = profile.name
                     self.label_bio.text = profile.biog
                     self.label_City.text = profile.city
-                    self.label_favorite.text = " Favorites Sounds: \(profile.favorite_count.unsafelyUnwrapped)"
-                    self.label_following.text = "Following: \(profile.following_count.unsafelyUnwrapped)"
-                    self.image_Profile.image(fromUrl: (profile.pictures?._640wx640h)!)
-                   
-
+                    self.label_favorite.text = " Favorites Sounds: \(favoriteCount)"
+                    self.label_following.text = "Following: \(followingCount)"
+                    if !imageURLString.isEmpty {
+                        self.image_Profile.image(fromUrl: imageURLString)
+                    }
                 }
                 
             } catch let parsingError {
@@ -129,6 +151,5 @@ extension UIImageView {
         theTask.resume()
     }
 }
-
 
 

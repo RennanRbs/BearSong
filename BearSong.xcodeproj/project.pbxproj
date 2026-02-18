@@ -15,15 +15,7 @@
 		E803ADAB21760F8D000D380C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E803ADA921760F8D000D380C /* LaunchScreen.storyboard */; };
 		E803ADB621760F8D000D380C /* MikeSongTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E803ADB521760F8D000D380C /* MikeSongTests.swift */; };
 		E803ADC121760F8D000D380C /* MikeSongUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E803ADC021760F8D000D380C /* MikeSongUITests.swift */; };
-		E874B7002178B82D005316BB /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B6FB2178B82D005316BB /* Tags.swift */; };
-		E874B7012178B82D005316BB /* Paging.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B6FC2178B82D005316BB /* Paging.swift */; };
-		E874B7022178B82D005316BB /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B6FD2178B82D005316BB /* DataRequest.swift */; };
 		E874B7032178B82D005316BB /* Json4Swift_Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B6FE2178B82D005316BB /* Json4Swift_Base.swift */; };
-		E874B7042178B82D005316BB /* Pictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B6FF2178B82D005316BB /* Pictures.swift */; };
-		E874B7062178B86D005316BB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B7052178B86D005316BB /* User.swift */; };
-		E874B7082178B9C8005316BB /* Cover_pictures.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B7072178B9C8005316BB /* Cover_pictures.swift */; };
-		E874B70A2178B9D1005316BB /* Json4Swift_Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B7092178B9D1005316BB /* Json4Swift_Profile.swift */; };
-		E874B70C2178B9DC005316BB /* PicturesProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B70B2178B9DC005316BB /* PicturesProfile.swift */; };
 		E874B7122179FEF5005316BB /* ViewControllerHotBear.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B7112179FEF5005316BB /* ViewControllerHotBear.swift */; };
 		E874B719217A0699005316BB /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874B717217A0699005316BB /* CollectionViewCell.swift */; };
 		E874B71A217A0699005316BB /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E874B718217A0699005316BB /* CollectionViewCell.xib */; };
@@ -69,7 +61,7 @@
 		E874B6FB2178B82D005316BB /* Tags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tags.swift; path = ../../../../../Desktop/model/Tags.swift; sourceTree = "<group>"; };
 		E874B6FC2178B82D005316BB /* Paging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Paging.swift; path = ../../../../../Desktop/model/Paging.swift; sourceTree = "<group>"; };
 		E874B6FD2178B82D005316BB /* DataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataRequest.swift; path = ../../../../../Desktop/model/DataRequest.swift; sourceTree = "<group>"; };
-		E874B6FE2178B82D005316BB /* Json4Swift_Base.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json4Swift_Base.swift; path = ../../../../../Desktop/model/Json4Swift_Base.swift; sourceTree = "<group>"; };
+		E874B6FE2178B82D005316BB /* Json4Swift_Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Json4Swift_Base.swift; sourceTree = "<group>"; };
 		E874B6FF2178B82D005316BB /* Pictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pictures.swift; path = ../../../../../Desktop/model/Pictures.swift; sourceTree = "<group>"; };
 		E874B7052178B86D005316BB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../../../Desktop/model/User.swift; sourceTree = "<group>"; };
 		E874B7072178B9C8005316BB /* Cover_pictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cover_pictures.swift; path = ../../../../../Desktop/model/Cover_pictures.swift; sourceTree = "<group>"; };
@@ -167,20 +159,12 @@
 			path = MikeSongUITests;
 			sourceTree = "<group>";
 		};
-		E866E53E217751D10021309F /* Model */ = {
+		E866E53E217751D10021309F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E874B6FD2178B82D005316BB /* DataRequest.swift */,
-				E874B7072178B9C8005316BB /* Cover_pictures.swift */,
 				E874B6FE2178B82D005316BB /* Json4Swift_Base.swift */,
-				E874B70B2178B9DC005316BB /* PicturesProfile.swift */,
-				E874B7092178B9D1005316BB /* Json4Swift_Profile.swift */,
-				E874B7052178B86D005316BB /* User.swift */,
-				E874B6FC2178B82D005316BB /* Paging.swift */,
-				E874B6FF2178B82D005316BB /* Pictures.swift */,
-				E874B6FB2178B82D005316BB /* Tags.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E874B713217A0029005316BB /* Controllers */ = {
@@ -355,22 +339,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				E874B7042178B82D005316BB /* Pictures.swift in Sources */,
-				E874B7002178B82D005316BB /* Tags.swift in Sources */,
 				E8D3B507217DEC3200315F94 /* PeekViewViewController.swift in Sources */,
-				E874B7082178B9C8005316BB /* Cover_pictures.swift in Sources */,
-				E874B7022178B82D005316BB /* DataRequest.swift in Sources */,
 				E874B7122179FEF5005316BB /* ViewControllerHotBear.swift in Sources */,
 				E8FA2145218477E500FA89FE /* RefreshTabbarDelegate.swift in Sources */,
-				E874B7012178B82D005316BB /* Paging.swift in Sources */,
 				E803ADA621760F8B000D380C /* MikeSong.xcdatamodeld in Sources */,
-				E874B7062178B86D005316BB /* User.swift in Sources */,
 				E803ADA021760F8B000D380C /* ViewController.swift in Sources */,
-				E874B70C2178B9DC005316BB /* PicturesProfile.swift in Sources */,
 				E874B719217A0699005316BB /* CollectionViewCell.swift in Sources */,
 				E8D3B50A217F40F200315F94 /* ViewControllerStar.swift in Sources */,
 				E874B7032178B82D005316BB /* Json4Swift_Base.swift in Sources */,
 				E803AD9E21760F8B000D380C /* AppDelegate.swift in Sources */,
-				E874B70A2178B9D1005316BB /* Json4Swift_Profile.swift in Sources */,
 				E8C852CE21808F1C00A28F0B /* CollectionViewCellFavorite.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
