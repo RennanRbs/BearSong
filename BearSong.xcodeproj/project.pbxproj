@@ -24,6 +24,8 @@
 		E8D3B507217DEC3200315F94 /* PeekPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3B506217DEC3200315F94 /* PeekPreviewViewController.swift */; };
 		E8D3B50A217F40F200315F94 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3B509217F40F200315F94 /* FavoritesViewController.swift */; };
 		E8FA2145218477E500FA89FE /* TabBarRefreshDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA2144218477E500FA89FE /* TabBarRefreshDelegate.swift */; };
+		E8FA2149218477E600FA89FE /* LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA2148218477E600FA89FE /* LayoutConstants.swift */; };
+		E8FA214A218477E700FA89FE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA214B218477E700FA89FE /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,15 +60,7 @@
 		E803ADBC21760F8D000D380C /* BearSongUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BearSongUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E803ADC021760F8D000D380C /* MikeSongUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MikeSongUITests.swift; sourceTree = "<group>"; };
 		E803ADC221760F8D000D380C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E874B6FB2178B82D005316BB /* Tags.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tags.swift; path = ../../../../../Desktop/model/Tags.swift; sourceTree = "<group>"; };
-		E874B6FC2178B82D005316BB /* Paging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Paging.swift; path = ../../../../../Desktop/model/Paging.swift; sourceTree = "<group>"; };
-		E874B6FD2178B82D005316BB /* DataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataRequest.swift; path = ../../../../../Desktop/model/DataRequest.swift; sourceTree = "<group>"; };
 		E874B6FE2178B82D005316BB /* MixcloudFeedResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixcloudFeedResponse.swift; sourceTree = "<group>"; };
-		E874B6FF2178B82D005316BB /* Pictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pictures.swift; path = ../../../../../Desktop/model/Pictures.swift; sourceTree = "<group>"; };
-		E874B7052178B86D005316BB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../../../../../Desktop/model/User.swift; sourceTree = "<group>"; };
-		E874B7072178B9C8005316BB /* Cover_pictures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cover_pictures.swift; path = ../../../../../Desktop/model/Cover_pictures.swift; sourceTree = "<group>"; };
-		E874B7092178B9D1005316BB /* Json4Swift_Profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Json4Swift_Profile.swift; path = ../../../../../Desktop/model/Json4Swift_Profile.swift; sourceTree = "<group>"; };
-		E874B70B2178B9DC005316BB /* PicturesProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PicturesProfile.swift; path = ../../../../../Desktop/model/PicturesProfile.swift; sourceTree = "<group>"; };
 		E874B7112179FEF5005316BB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		E874B717217A0699005316BB /* FeedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItemCell.swift; sourceTree = "<group>"; };
 		E874B718217A0699005316BB /* FeedItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedItemCell.xib; sourceTree = "<group>"; };
@@ -76,6 +70,8 @@
 		E8D3B508217E0D8F00315F94 /* BearSong.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BearSong.entitlements; sourceTree = "<group>"; };
 		E8D3B509217F40F200315F94 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		E8FA2144218477E500FA89FE /* TabBarRefreshDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRefreshDelegate.swift; sourceTree = "<group>"; };
+		E8FA2148218477E600FA89FE /* LayoutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstants.swift; sourceTree = "<group>"; };
+		E8FA214B218477E700FA89FE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +126,8 @@
 				E8FA2143218477BE00FA89FE /* Delegate */,
 				E874B714217A0345005316BB /* Cells */,
 				E874B713217A0029005316BB /* Controllers */,
-				E866E53E217751D10021309F /* Model */,
+				E866E53E217751D10021309F /* Models */,
+				E8FA2148218477E600FA89FE /* LayoutConstants.swift */,
 				E803AD9D21760F8B000D380C /* AppDelegate.swift */,
 				E803ADA121760F8B000D380C /* Main.storyboard */,
 				E803ADA721760F8D000D380C /* Assets.xcassets */,
@@ -171,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				E874B7112179FEF5005316BB /* FeedViewController.swift */,
+				E8FA214B218477E700FA89FE /* BaseViewController.swift */,
 				E803AD9F21760F8B000D380C /* ProfileViewController.swift */,
 				E8D3B506217DEC3200315F94 /* PeekPreviewViewController.swift */,
 				E8D3B509217F40F200315F94 /* FavoritesViewController.swift */,
@@ -312,8 +310,8 @@
 				E803ADAB21760F8D000D380C /* LaunchScreen.storyboard in Resources */,
 				E803ADA821760F8D000D380C /* Assets.xcassets in Resources */,
 				E803ADA321760F8B000D380C /* Main.storyboard in Resources */,
-				E8C852CF21808F1C00A28F0B /* CollectionViewCellFavorite.xib in Resources */,
-				E874B71A217A0699005316BB /* CollectionViewCell.xib in Resources */,
+				E8C852CF21808F1C00A28F0B /* FavoriteItemCell.xib in Resources */,
+				E874B71A217A0699005316BB /* FeedItemCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,17 +336,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E874B7042178B82D005316BB /* Pictures.swift in Sources */,
-				E8D3B507217DEC3200315F94 /* PeekViewViewController.swift in Sources */,
-				E874B7122179FEF5005316BB /* ViewControllerHotBear.swift in Sources */,
-				E8FA2145218477E500FA89FE /* RefreshTabbarDelegate.swift in Sources */,
+				E8D3B507217DEC3200315F94 /* PeekPreviewViewController.swift in Sources */,
+				E874B7122179FEF5005316BB /* FeedViewController.swift in Sources */,
+				E8FA2145218477E500FA89FE /* TabBarRefreshDelegate.swift in Sources */,
+				E8FA2149218477E600FA89FE /* LayoutConstants.swift in Sources */,
+				E8FA214A218477E700FA89FE /* BaseViewController.swift in Sources */,
 				E803ADA621760F8B000D380C /* MikeSong.xcdatamodeld in Sources */,
-				E803ADA021760F8B000D380C /* ViewController.swift in Sources */,
-				E874B719217A0699005316BB /* CollectionViewCell.swift in Sources */,
-				E8D3B50A217F40F200315F94 /* ViewControllerStar.swift in Sources */,
-				E874B7032178B82D005316BB /* Json4Swift_Base.swift in Sources */,
+				E803ADA021760F8B000D380C /* ProfileViewController.swift in Sources */,
+				E874B719217A0699005316BB /* FeedItemCell.swift in Sources */,
+				E8D3B50A217F40F200315F94 /* FavoritesViewController.swift in Sources */,
+				E874B7032178B82D005316BB /* MixcloudFeedResponse.swift in Sources */,
 				E803AD9E21760F8B000D380C /* AppDelegate.swift in Sources */,
-				E8C852CE21808F1C00A28F0B /* CollectionViewCellFavorite.swift in Sources */,
+				E8C852CE21808F1C00A28F0B /* FavoriteItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +526,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7SH46749RP;
 				INFOPLIST_FILE = MikeSong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,6 +546,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7SH46749RP;
 				INFOPLIST_FILE = MikeSong/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

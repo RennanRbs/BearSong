@@ -15,7 +15,7 @@ class FeedItemCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        uiImage_image.layer.cornerRadius = 20
+        uiImage_image.layer.cornerRadius = LayoutConstants.cornerRadiusMedium
         uiImage_image.clipsToBounds = true
     }
 }
