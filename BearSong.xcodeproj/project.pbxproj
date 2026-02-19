@@ -26,6 +26,7 @@
 		E8FA2145218477E500FA89FE /* TabBarRefreshDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA2144218477E500FA89FE /* TabBarRefreshDelegate.swift */; };
 		E8FA2149218477E600FA89FE /* LayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA2148218477E600FA89FE /* LayoutConstants.swift */; };
 		E8FA214A218477E700FA89FE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA214B218477E700FA89FE /* BaseViewController.swift */; };
+		E8FA2150218477E800FA89FE /* FavoriteStorageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FA2151218477E800FA89FE /* FavoriteStorageHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		E8FA2144218477E500FA89FE /* TabBarRefreshDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarRefreshDelegate.swift; sourceTree = "<group>"; };
 		E8FA2148218477E600FA89FE /* LayoutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutConstants.swift; sourceTree = "<group>"; };
 		E8FA214B218477E700FA89FE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		E8FA2151218477E800FA89FE /* FavoriteStorageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStorageHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				E8FA2143218477BE00FA89FE /* Delegate */,
 				E874B714217A0345005316BB /* Cells */,
 				E874B713217A0029005316BB /* Controllers */,
+				E8FA2152218477E800FA89FE /* Helpers */,
 				E866E53E217751D10021309F /* Models */,
 				E8FA2148218477E600FA89FE /* LayoutConstants.swift */,
 				E803AD9D21760F8B000D380C /* AppDelegate.swift */,
@@ -193,6 +196,14 @@
 				E8FA2144218477E500FA89FE /* TabBarRefreshDelegate.swift */,
 			);
 			path = Delegate;
+			sourceTree = "<group>";
+		};
+		E8FA2152218477E800FA89FE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E8FA2151218477E800FA89FE /* FavoriteStorageHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +352,7 @@
 				E8FA2145218477E500FA89FE /* TabBarRefreshDelegate.swift in Sources */,
 				E8FA2149218477E600FA89FE /* LayoutConstants.swift in Sources */,
 				E8FA214A218477E700FA89FE /* BaseViewController.swift in Sources */,
+				E8FA2150218477E800FA89FE /* FavoriteStorageHelper.swift in Sources */,
 				E803ADA621760F8B000D380C /* MikeSong.xcdatamodeld in Sources */,
 				E803ADA021760F8B000D380C /* ProfileViewController.swift in Sources */,
 				E874B719217A0699005316BB /* FeedItemCell.swift in Sources */,
