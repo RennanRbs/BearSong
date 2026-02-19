@@ -392,6 +392,42 @@
             </objects>
             <point key="canvasLocation" x="804" y="-440.7796101949026"/>
         </scene>
+        <!--Navigation Controller - Feed-->
+        <scene sceneID="nav-feed-scene">
+            <objects>
+                <navigationController id="nav-feed-001" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="prv-86-70e" kind="relationship" relationship="rootViewController" id="seg-nav-feed-root"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nav-feed-resp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98" y="175"/>
+        </scene>
+        <!--Navigation Controller - Favorites-->
+        <scene sceneID="nav-fav-scene">
+            <objects>
+                <navigationController id="nav-fav-002" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="IZx-cK-GAz" kind="relationship" relationship="rootViewController" id="seg-nav-fav-root"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nav-fav-resp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98" y="225"/>
+        </scene>
+        <!--Navigation Controller - Profile-->
+        <scene sceneID="nav-prof-scene">
+            <objects>
+                <navigationController id="nav-prof-003" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="yHd-4T-sVS" kind="relationship" relationship="rootViewController" id="seg-nav-prof-root"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nav-prof-resp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98" y="275"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cWL-Dp-FT6">
             <objects>
@@ -402,9 +438,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="prv-86-70e" kind="relationship" relationship="viewControllers" id="WnN-Jd-cPE"/>
-                        <segue destination="IZx-cK-GAz" kind="relationship" relationship="viewControllers" id="CbI-Ge-fWo"/>
-                        <segue destination="yHd-4T-sVS" kind="relationship" relationship="viewControllers" id="jkS-1O-2d7"/>
+                        <segue destination="nav-feed-001" kind="relationship" relationship="viewControllers" id="WnN-Jd-cPE"/>
+                        <segue destination="nav-fav-002" kind="relationship" relationship="viewControllers" id="CbI-Ge-fWo"/>
+                        <segue destination="nav-prof-003" kind="relationship" relationship="viewControllers" id="jkS-1O-2d7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KQh-cG-IN7" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -14,7 +14,7 @@ class FavoriteItemCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        uiimage_favorite?.layer.cornerRadius = 20
+        uiimage_favorite?.layer.cornerRadius = LayoutConstants.cornerRadiusMedium
         uiimage_favorite?.clipsToBounds = true
     }
 }

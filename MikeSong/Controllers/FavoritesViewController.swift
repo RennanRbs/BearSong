@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class FavoritesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class FavoritesViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var favoritesCollectionView: UICollectionView!
     @IBOutlet weak var previewImageView: UIImageView!
@@ -19,9 +19,24 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBar(title: "Favorites")
+        if #available(iOS 13.0, *) {
+            let item = UITabBarItem(
+                title: nil,
+                image: UIImage(systemName: "star"),
+                selectedImage: UIImage(systemName: "star.fill")
+            )
+            item.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
+            (navigationController ?? self).tabBarItem = item
+        }
         favoritesCollectionView.delegate = self
         favoritesCollectionView.dataSource = self
         favoritesCollectionView.register(UINib(nibName: "FavoriteItemCell", bundle: nil), forCellWithReuseIdentifier: "FavoriteCell")
+        if let flowLayout = favoritesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.sectionInset = LayoutConstants.sectionInset
+            flowLayout.minimumLineSpacing = LayoutConstants.cellSpacing
+            flowLayout.minimumInteritemSpacing = LayoutConstants.cellSpacing
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +96,7 @@ class FavoritesViewController: UIViewController, UICollectionViewDataSource, UIC
 extension FavoritesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let collectionViewWidth = favoritesCollectionView.frame.width
-        let cellSideLength = collectionViewWidth - 16
+        let cellSideLength = collectionViewWidth - LayoutConstants.sectionInset.left - LayoutConstants.sectionInset.right
         return CGSize(width: cellSideLength, height: cellSideLength)
     }
 }
