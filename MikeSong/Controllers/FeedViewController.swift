@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class FeedViewController: BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate, TabBarRefreshDelegate {
 
@@ -17,6 +18,8 @@ class FeedViewController: BaseViewController, UICollectionViewDataSource, UIColl
     private var loadingIndicator: UIActivityIndicatorView?
     private var refreshButton: UIButton?
     private var errorEmptyView: UIView?
+    /// Names of items favorited in this session or loaded from Core Data; used to show heart on cards.
+    private var favoritedItemNames: Set<String> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +47,7 @@ class FeedViewController: BaseViewController, UICollectionViewDataSource, UIColl
             flowLayout.minimumInteritemSpacing = LayoutConstants.cellSpacing
         }
 
+        loadFavoritedNamesFromCoreData()
         requestFeed()
 
         if traitCollection.forceTouchCapability == .available {
@@ -228,7 +232,41 @@ class FeedViewController: BaseViewController, UICollectionViewDataSource, UIColl
         guard let data = feedResponse?.data, indexPath.item < data.count else { return cell }
         let item = data[indexPath.item]
         cell.uiImage_image.image(fromUrl: item.pictures?._640wx640h ?? "")
+        let name = item.name ?? ""
+        cell.setFavorited(favoritedItemNames.contains(name))
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let data = feedResponse?.data, indexPath.item < data.count else { return }
+        let item = data[indexPath.item]
+        let name = item.name ?? "Unknown"
+        let cell = collectionView.cellForItem(at: indexPath) as? FeedItemCell
+        var imageToSave = cell?.uiImage_image.image
+        if imageToSave == nil, let urlString = item.pictures?._640wx640h, let url = URL(string: urlString) {
+            if let data = try? Data(contentsOf: url), let img = UIImage(data: data) {
+                imageToSave = img
+            }
+        }
+        guard let image = imageToSave else { return }
+        if FavoriteStorageHelper.saveFavorite(image: image, name: name) {
+            favoritedItemNames.insert(name)
+            collectionView.reloadItems(at: [indexPath])
+        }
+    }
+
+    private func loadFavoritedNamesFromCoreData() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Favorite")
+        request.resultType = .dictionaryResultType
+        request.propertiesToFetch = ["name"]
+        do {
+            let results = try appDelegate.persistentContainer.viewContext.fetch(request) as? [[String: Any]]
+            let names = (results ?? []).compactMap { $0["name"] as? String }
+            favoritedItemNames = Set(names)
+        } catch {
+            // ignore
+        }
     }
 }
 
